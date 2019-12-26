@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet"  media="all and (orientation:landscape)"  href="./CheckEmp.css">
+    <title></title>
+    <link rel="shortcut icon" href="../Resource/favicon.ico" type="image/x-icon">
+</head>
+<body>
+<div id="insertIOCardMaIP" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h5>新增員工綁定卡機IP</h5>
+            </div>
+            <div class="modal-body">
+                <div class="control-group"><label for="outCard" style="color:red">多個ip或者工號之間用英文,（逗號）隔開，如132456,123456</label></div>
+                <div class="control-group">
+                    <div class="controls">
+                        <label for="outCard">卡機ip</label>
+                        <div class="controls">
+                            <input type="text" id="insert_deviceIP" name="inputChineseName" autocomplete="off" style="width:250px" class="required nameCheck" placeholder="卡機ip">
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputOTCarid">員工工號</label>
+                    <div class="controls">
+                        <input type="text" id="insert_emp_id" name="inputChineseName" autocomplete="off" style="width:250px" class="required nameCheck" placeholder="員工工號">
+                    </div>
+                </div>
+
+
+                <br>
+                <button type="submit" id="setEmpIPBinding" class="btn btn-primary">設置</button>
+                <button type="reset" id="resetSubmit" class="btn">清除</button>
+                <!-- 	</form>	  -->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

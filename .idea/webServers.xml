@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="250f1b2c-91dd-449a-98af-32c909f1f760" name="tomcat" url="http://localhost:8080/CheckEquitp">
+        <fileTransfer port="0" mountedRoot="C:\apache-tomcat-7.0.82\webapps\CheckEquitp" accessType="MOUNT" />
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./Check.js"></script>
+    <script type="text/javascript" src="./reqrcode.js"></script>
+    <link rel="stylesheet" type="text/css" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!--横屏-->
+    <link rel="stylesheet"  media="all and (orientation:landscape)"  href="./Check.css">
+    <!-- 竖屏-->
+    <link rel="stylesheet" media="all and (orientation:portrait)" href="VerCheck.css">
+    <!--<link rel="stylesheet" href="CheckEmp.css">-->
+    <title>點檢系統</title>
+
+    <link rel="shortcut icon" href="../Resource/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="../Resource/Check.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Resource/Check.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Resource/Check.png">
+
+
+    <!--  <link rel="import" href="CheckEmp.html" id="insertIOCardMaIP">-->
+
+    <!-- <iframe name="content_iframe"  src="CheckEmp.html" frameborder=0></iframe>-->
+</head>
+<!--<script>
+
+   $(function () {
+       window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function() {
+           if (window.orientation === 180 || window.orientation === 0) {
+
+               //获取點檢人員div
+               document.getElementById("CheckEmp").style.visibility="hidden";//隐藏
+               // alert('竖屏状态！');
+           }
+           if (window.orientation === 90 || window.orientation === -90 ){
+               document.getElementById("CheckEmp").style.visibility="visible";//显示
+
+
+               // alert('横屏状态！');
+           }
+       }, false);
+
+
+   })
+</script>-->
+<body>
+
+
+<div class="container-fluid">
+
+
+    <div class="CheckEmp" id="CheckEmp">
+        <div>
+            <p class="CheckEmpP">點檢人員</p>
+        </div>
+        <div>
+            <a id="addNewIOCardMaIP" role="button" href="#insertIOCardMaIP"class="CheckBtn" data-toggle="modal">週期</a>
+            <!-- <a class="CheckBtn" id="CheckBtn">週期</a>-->
+        </div>
+
+
+        <div class="empShow">
+            <div class="aswitch">
+                <!-- 仿ios的switch开关 -->
+
+                <!--  <input class="switch" type="checkbox" />-->
+                <!--  <label for=""><input type="checkbox" name="" id="" class="a-switch"></label>-->
+            </div>
+            <table class="table table-hover" id="empShowTable" style="table-layout: fixed" >
+                <tbody>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div>
+        <p  id="titlePresent">無設備ID資料,請Scan QRCode</p>
+    </div>
+
+
+    <form enctype="multipart/form-data" id="uploadForm">
+        <div class="file-main">
+            <!--  <input id="pictureB_file" accept="image/*" type="file" capture="camera" name="pictureA_file" /> -->
+            <input id="pictureC_file" type="file" name="pictureA_file" style="display:none"/>
+            <a class="btn" onclick="$('input[id=pictureC_file]').click();">Scan QR Code</a>
+
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-sm-1-8">
+            <p class="project">保養項目</p>
+        </div>
+        <div class="col-sm-1-8">
+            <p class="project">良好</p>
+        </div>
+        <div class="col-sm-1-8">
+            <p class="project">調整良好</p>
+        </div>
+        <div class="col-sm-1-8">
+            <p class="project">自己修理</p>
+        </div>
+        <div class="col-sm-1-8">
+            <p class="project">請求維修</p>
+        </div>
+        <div class="col-sm-1-8">
+            <p class="project">更換</p>
+        </div>
+        <div class="col-sm-1-8">
+            <p class="project">補充</p>
+        </div>
+        <div class="col-sm-1-8">
+            <p class="project">其他</p>
+        </div>
+
+    </div>
+    <div class="showProject">
+        <table class="table" id="projectTable">
+            <tbody class="tbody">
+            <tr class="td" >
+
+                <td rowspan="2" style="width: 90px"> </td>
+                <td colspan="7" > </td>
+
+            </tr>
+            <tr>
+                <td colspan="7"> </td>
+            </tr>
+            <tr class="td">
+
+                <td rowspan="2"> </td>
+                <td colspan="7"> </td>
+
+            </tr>
+            <tr>
+                <td colspan="7"> </td>
+            </tr>
+            <tr class="td">
+
+                <td rowspan="2"> </td>
+                <td colspan="7"> </td>
+
+            </tr>
+            <tr>
+                <td colspan="7"> </td>
+            </tr>
+           <tr class="td">
+
+               <td rowspan="2"> </td>
+               <td colspan="7"> </td>
+
+           </tr>
+           <tr>
+               <td colspan="7"> </td>
+           </tr>
+           <tr class="td">
+
+               <td rowspan="2"> </td>
+               <td colspan="7"> </td>
+
+           </tr>
+           <tr>
+               <td colspan="7"> </td>
+           </tr>
+           <tr class="td">
+
+               <td rowspan="2"> </td>
+               <td colspan="7"> </td>
+
+           </tr>
+           <tr>
+               <td colspan="7"> </td>
+           </tr>
+           <tr class="td">
+
+               <td rowspan="2"> </td>
+               <td colspan="7"> </td>
+
+           </tr>
+           <tr>
+               <td colspan="7"> </td>
+           </tr>
+           <tr class="td">
+
+               <td rowspan="2"> </td>
+               <td colspan="7"> </td>
+
+           </tr>
+           <tr>
+               <td colspan="7"> </td>
+           </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="bottomOne">
+        <!-- <a href="#"> <img src="submit.png" alt="提交按鈕" id="submit"></a>-->
+        <!--<img src="submit.png" alt="提交按鈕" id="submit">-->
+        <button id="submit"></button>
+    </div>
+    <div class="hidden">
+        <img id="imageContent" >
+        <label id="showLabel"></label>
+
+    </div>
+    <!-- modal fade bs-example-modal-sm-->
+    <!--<iframe   frameborder=0   border=0   width=300   height=300   src="CheckEmp.htmlh" mce_src="head.htm"></iframe>-->
+    <div id="insertIOCardMaIP" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content fade in">
+                <div class="modal-header">
+                    <label style="text-align: center;width: 100%;font-size: 16px">點檢週期變更</label>
+                    <br>
+                    <label style="text-align: center;font-size: 10px;width: 100%">請選擇點檢週期</label>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <table class="table" id="CheckChoose">
+                            <thead class="hidden">
+                            <tr>
+                                <th>名称</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="CheckTimes">日點檢項目</td>
+
+                            </tr>
+                            <tr>
+                                <td class="CheckTimes">週點檢項目</td>
+
+                            </tr>
+                            <tr>
+                                <td class="CheckTimes">月點檢項目</td>
+
+                            </tr>
+                            <tr>
+                                <td class="CheckTimes">季點檢項目</td>
+
+                            </tr>
+                            <tr>
+                                <td class="CheckTimes">年點檢項目</td>
+
+                            </tr>
+                            <tr>
+                                <td class="CheckTimes">Cancel</td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
